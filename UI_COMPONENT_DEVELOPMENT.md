@@ -116,13 +116,6 @@ TextField(
 ),
 ```
 
-#### 3. Descriptive Label with Context
-```dart
-Text('Message (Optional)'),
-Text('Tell us what you\'re thinking about'),
-SizedBox(height: 8),
-TextField(/* ... */),
-```
 
 **Key Features:**
 - Multiple labeling techniques
