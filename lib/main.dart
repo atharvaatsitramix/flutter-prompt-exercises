@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets/labeled_text_field.dart';
+import 'list_view_examples.dart';
+import 'app_router.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,12 +10,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Simple Text Field Demo',
+    return MaterialApp.router(
+      title: 'Flutter Navigation Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
+        useMaterial3: true,
       ),
-      home: SimpleTextFieldDemo(),
+      routerConfig: appRouter,
     );
   }
 }
@@ -72,6 +75,29 @@ class _SimpleTextFieldDemoState extends State<SimpleTextFieldDemo> {
               child: Text(
                 'Show Text',
                 style: TextStyle(fontSize: 16),
+              ),
+            ),
+            
+            SizedBox(height: 24),
+            
+            // Button to navigate to ListView examples
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListViewExamples()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Text(
+                'Explore ListView Approaches',
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
             
